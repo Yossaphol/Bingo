@@ -30,9 +30,29 @@ const items = [...people,...fruits]
 const images = {
 Anan:"/img/anan.png",
 Ben:"/img/ben.png",
-Chai:"/img/chai.jpg",
-Dom:"/img/dom.jpg",
-Ek:"/img/ek.jpg"
+Chai:"/img/default.png",
+Dom:"/img/default.png",
+Ek:"/img/default.png",
+Film:"/img/default.png",
+Guy:"/img/default.png",
+Hong:"/img/default.png",
+Ice:"/img/default.png",
+Jame:"/img/default.png",
+Ken:"/img/default.png",
+Leo:"/img/default.png",
+Max:"/img/default.png",
+Nat:"/img/default.png",
+Oak:"/img/default.png",
+Pete:"/img/default.png",
+Q:"/img/default.png",
+Rin:"/img/default.png",
+Som:"/img/default.png",
+Ton:"/img/default.png",
+Uan:"/img/default.png",
+Vee:"/img/default.png",
+Win:"/img/default.png",
+X:"/img/default.png",
+Yut:"/img/default.png"
 }
 
 function shuffle(arr){
