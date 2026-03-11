@@ -13,15 +13,10 @@ const rooms = {}
 const people = [
 "Anan","Ben","Chai","Dom","Ek","Film","Guy","Hong","Ice","Jame",
 "Ken","Leo","Max","Nat","Oak","Pete","Q","Rin","Som","Ton",
-"Uan","Vee","Win","Xiang","Yut"
+"Uan","Vee","Win","Xiang","Yut", "Zon"
 ]
 
-const fruits = [
-"Apple","Banana","Mango","Orange","Pineapple",
-"Watermelon","Papaya","Strawberry","Grape","Coconut"
-]
-
-const items = [...people,...fruits]
+const items = [...people]
 
 function shuffle(a){
  return a.sort(()=>Math.random()-0.5)

@@ -38,18 +38,25 @@ socket.on("gameStarted", () => {
 
 // เมื่อเข้าหน้า bingo.html ให้ขอข้อมูลกระดานทันที
 if (window.location.pathname === "/bingo.html") {
-    socket.emit("joinRoom", room); // จอยห้องอีกครั้งเพื่อความชัวร์หลังเปลี่ยนหน้า
+    socket.emit("joinRoom", room);
     socket.emit("getBoard", room);
 }
 
 // ฟังก์ชันหา Path รูปภาพ (อ้างอิงตามชื่อใน server.js)
 function getImageUrl(name) {
-    const people = ["Anan","Ben","Chai","Dom","Ek","Film","Guy","Hong","Ice","Jame","Ken","Leo","Max","Nat","Oak","Pete","Q","Rin","Som","Ton","Uan","Vee","Win","Xiang","Yut"];
-    const fruits = ["Apple","Banana","Mango","Orange","Pineapple","Watermelon","Papaya","Strawberry","Grape","Coconut"];
+    const people = [
+        "Anan","Ben","Chai","Dom","Ek","Film","Guy","Hong","Ice","Jame",
+        "Ken","Leo","Max","Nat","Oak","Pete","Q","Rin","Som","Ton",
+        "Uan","Vee","Win","Xiang","Yut","Zon"
+    ];
 
-    if (people.includes(name)) return `/img/people/${name.toLowerCase()}.png`;
-    if (fruits.includes(name)) return `/img/fruits/${name.toLowerCase()}.png`;
-    return "/img/default.png"; // รูปสำรองถ้าหาไม่เจอ
+    const index = people.indexOf(name);
+
+    if (index !== -1) {
+        return `/img/people/${index + 1}.png`;
+    }
+
+    return "/img/default.png";
 }
 
 socket.on("boardData", (board) => {
