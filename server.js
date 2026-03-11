@@ -11,10 +11,33 @@ app.use(express.static("public"))
 const rooms = {}
 
 const people = [
-"Anan","Ben","Chai","Dom","Ek","Film","Guy","Hong","Ice","Jame",
-"Ken","Leo","Max","Nat","Oak","Pete","Q","Rin","Som","Ton",
-"Uan","Vee","Win","Xiang","Yut", "Zon"
-]
+"P' Tangmo",
+"P' Pink",
+"P' Nice",
+"P' Siw",
+"P' Namo",
+"P' Benz",
+"P' You",
+"P' Paul",
+"P' Mikey",
+"P' Pat",
+"P' Fourth",
+"P' Pimmy",
+"P' Nadia",
+"P' Pun",
+"P' Prima",
+"P' Ming",
+"P' Bowky",
+"P' Nam",
+"P' Note",
+"P' Pam",
+"P' Monao",
+"P' Boy",
+"P' Kaowpod",
+"P' Phil",
+"P' Wha",
+"P' Ling"
+];
 
 const items = [...people]
 

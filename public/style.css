@@ -1,12 +1,12 @@
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Bitcount Prop Double", Arial, Helvetica, sans-serif;
     text-align: center;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f9;
+    background-color: #355689;
 }
 
-h1 { color: #333; margin-bottom: 20px; }
+h1 { color: #e8ca4c; margin-bottom: 20px; font-weight: 300;}
 
 /* ปุ่มพื้นฐาน */
 button {
