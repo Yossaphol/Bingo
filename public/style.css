@@ -1,104 +1,97 @@
-body{
-font-family:system-ui;
-background:#0f172a;
-color:white;
-text-align:center;
-margin:0;
-padding:20px;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f9;
 }
 
-button{
-padding:10px 20px;
-border:none;
-border-radius:10px;
-background:#22c55e;
-color:white;
-cursor:pointer;
-margin:10px;
-font-size:16px;
+h1 { color: #333; margin-bottom: 20px; }
+
+/* ปุ่มพื้นฐาน */
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
 }
 
-#board{
-
-display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:12px;
-
-max-width:600px;
-margin:auto;
-
+input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 200px;
 }
 
-.cell{
-
-background:#1e293b;
-border-radius:16px;
-
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-
-height:110px;
-width:100%;
-
-transition:0.2s;
-
-cursor:pointer;
-
+/* กระดาน Bingo */
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 ช่องเท่ากัน */
+    gap: 8px;
+    max-width: 500px;
+    margin: 20px auto;
 }
 
-.cell:hover{
-transform:scale(1.05);
-background:#334155;
+/* ช่องในกระดาน */
+.cell {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1; /* บังคับสี่เหลี่ยมจัตุรัส */
+    cursor: pointer;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.1s;
+    overflow: hidden;
 }
 
-.cell img{
+.cell:active { transform: scale(0.95); }
 
-width:50px;
-height:50px;
-
-object-fit:cover;
-border-radius:50%;
-
-margin-bottom:6px;
-
+/* รูปภาพในช่อง */
+.cell img {
+    width: 55%;
+    height: 55%;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 4px;
 }
 
-.cell span{
-
-font-size:13px;
-text-align:center;
-
+/* ข้อความในช่อง */
+.cell span {
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+    word-break: break-all;
 }
 
-.marked{
+/* สีเมื่อมาร์คช่อง */
+.marked {
+    background-color: #4caf50 !important;
+}
+.marked span { color: white; }
 
-background:#22c55e;
-
+/* ช่องดาว */
+.star {
+    background-color: #ffd700;
+    font-size: 30px;
 }
 
-.star{
-
-background:gold;
-color:black;
-font-size:28px;
-
-}
-
-@media(max-width:600px){
-
-#board{
-max-width:95vw;
-}
-
-.cell{
-height:80px;
-}
-
-.cell img{
-width:36px;
-height:36px;
-}
-
+/* ปรับแต่งสำหรับมือถือ (Responsive) */
+@media (max-width: 600px) {
+    #board {
+        max-width: 95vw;
+        gap: 5px;
+    }
+    .cell { padding: 4px; }
+    .cell span { font-size: 9px; }
+    .star { font-size: 24px; }
 }
