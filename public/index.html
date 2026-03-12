@@ -4,21 +4,40 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="index.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@100..900&family=Playwrite+IN:wght@100..400&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
+<!-- 
 <h1>Join Bingo</h1>
 
 <input id="room" placeholder="Room ID">
 
 <button onclick="joinRoom()">Join</button>
 
-<p id="status"></p>
+<p id="status"></p> -->
+
+<div class="main-card">
+    <h1>Join MD03 Rising Star Bingo</h1>
+    
+    <p class="status-helper">Enter the room ID</p>
+
+    <div class="room-id-container">
+        <input type="text" maxlength="1" id="r1" class="room-box active">
+        <input type="text" maxlength="1" id="r2" class="room-box">
+        <input type="text" maxlength="1" id="r3" class="room-box">
+        <input type="text" maxlength="1" id="r4" class="room-box">
+    </div>
+
+    <div class="old-controls" style="display: none;">
+        <input id="room" placeholder="Room ID">
+        <button onclick="joinRoom()">Join</button>
+    </div>
+
+    <p id="status"></p>
+</div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="client.js"></script>
