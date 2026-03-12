@@ -1,77 +1,163 @@
 body {
-    /* ปรับเป็นสีพื้นหลังที่ดูนุ่มนวลกว่าเดิมแบบในตัวอย่าง */
-    background-color:#131842;
+    background-color: #131842;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
+    padding: 15px; /* ลด padding ขอบหน้าจอลงเล็กน้อยสำหรับมือถือ */
     box-sizing: border-box;
+    overflow-x: hidden; /* ป้องกันการเลื่อนด้านข้าง */
 }
 
 h1 {
-    color: #f9da43; /* สีทองดวงจันทร์ */
+    color: #f9da43;
     font-family: "Bitcount Prop Double", Arial, Helvetica, sans-serif;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
     font-weight: 500;
     text-align: center;
-    font-size: clamp(20px, 5vw, 48px);
+    font-size: clamp(22px, 8vw, 40px); /* ปรับให้ยืดหยุ่นตามความกว้างหน้าจอ */
     letter-spacing: 1px;
+    width: 100%;
 }
 
 .status-helper {
     font-family: Arial, Helvetica, sans-serif;
     color: #7f8c8d;
-    font-size: 16px;
-    margin-bottom: 30px;
+    font-size: clamp(14px, 4vw, 16px);
+    margin-bottom: 25px;
 }
 
-/* Class ใหม่สำหรับ Card หลัก */
+/* --- ปรับปรุง Main Card ให้รองรับ Mobile --- */
 .main-card {
     background-color: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 30px 20px; /* ลด padding ด้านข้างลงเมื่ออยู่บนมือถือ */
+    border-radius: 24px; /* ความโค้งมนสไตล์ UI สมัยใหม่ */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
     text-align: center;
-    width: 90%;
-    max-width: 450px;
+    width: 100%; /* ให้กว้างเต็มที่แต่ติด max-width */
+    max-width: 400px; /* ลดความกว้างสูงสุดลงเล็กน้อยเพื่อให้ดูสมดุล */
+    box-sizing: border-box;
 }
 
-/* Class สำหรับจัดการกลุ่มของช่อง ID ห้อง */
+/* --- ปรับปรุง Container ของช่องรหัส --- */
 .room-id-container {
     display: flex;
-    gap: 15px;
+    gap: 10px; /* ลดช่องว่างระหว่างกล่องบนมือถือ */
     justify-content: center;
     margin-bottom: 20px;
+    width: 100%;
 }
 
-/* สไตล์ของแต่ละช่อง ID ห้อง */
+/* --- ปรับปรุงสไตล์ช่องกรอกรหัส (Room Box) --- */
 .room-box {
-    width: clamp(50px, 12vw, 65px);
-    height: clamp(50px, 12vw, 65px);
+    /* ใช้ฟังก์ชัน clamp เพื่อให้ขนาดหดได้ตามหน้าจอเล็กๆ */
+    width: clamp(45px, 15vw, 65px); 
+    height: clamp(55px, 18vw, 75px);
     text-align: center;
-    font-size: 32px;
-    font-weight: 500;
+    font-size: 28px;
+    font-weight: 600;
     border: 2px solid #e0e6ed;
     border-radius: 12px;
-    background-color: transparent;
-    transition: border-color 0.2s;
+    background-color: #f8f9fa; /* ใส่สีพื้นหลังอ่อนๆ ให้ดูมีมิติ */
+    transition: all 0.2s ease;
     outline: none;
-    cursor: text;
+    -webkit-appearance: none; /* สำหรับ Safari บน iOS */
 }
 
-/* สไตล์ของช่องที่ถูกเลือก (Focused) แบบในตัวอย่าง */
 .room-box:focus, .room-box.active {
-    border-color: #3d8bff;
-    box-shadow: 0 0 10px rgba(61, 139, 255, 0.1);
+    border-color: #f9da43; /* ใช้สีทองเดียวกับหัวข้อ */
+    background-color: white;
+    box-shadow: 0 0 15px rgba(249, 218, 67, 0.2);
+    transform: translateY(-2px); /* เอฟเฟกต์ยกตัวขึ้นเล็กน้อย */
 }
 
 /* สไตล์ข้อความ Error */
-#status.error {
-    color: #8f8e8e;
-    font-weight: bold;
+#status {
+    font-family: Arial, sans-serif;
     margin-top: 15px;
+    font-size: 14px;
+    min-height: 1.2em; /* กันการกระตุกของ Layout เมื่อข้อความปรากฏ */
+}
+
+#status.error {
+    color: #e74c3c; /* สีแดงสำหรับ Error เพื่อความชัดเจน */
+    font-weight: bold;
+}
+
+/* --- Media Queries สำหรับหน้าจอที่เล็กมากๆ (เช่น iPhone SE หรือรุ่นเก่า) --- */
+@media (max-width: 360px) {
+    .main-card {
+        padding: 20px 15px;
+    }
+    .room-id-container {
+        gap: 8px;
+    }
+    .room-box {
+        border-radius: 8px;
+        font-size: 24px;
+    }
+}
+
+/* --- 1. สำหรับมือถือรุ่นเล็กมาก (iPhone SE, Jelly, หรือ Android จอเล็ก) --- */
+@media (max-width: 359px) {
+    .main-card { padding: 20px 15px; }
+    .room-id-container { gap: 8px; }
+    .room-box { 
+        width: 42px; 
+        height: 55px; 
+        font-size: 22px; 
+        border-radius: 8px;
+    }
+    #board { gap: 4px; padding: 5px; }
+    .cell { padding: 4px; }
+    .cell span { font-size: 8px; }
+    .cell img { width: 50%; height: 50%; }
+    .star { font-size: 20px; }
+}
+
+/* --- 2. Android ทั่วไป (Samsung A Series / S รุ่นปกติ / Google Pixel) --- */
+@media (min-width: 360px) and (max-width: 374px) {
+    .room-box { width: 48px; height: 60px; font-size: 24px; }
+    #board { gap: 6px; padding: 8px; }
+    .cell span { font-size: 9px; }
+}
+
+/* --- 3. iPhone 10, 11, 12, 13, 14, 15, 16 (Standard / Pro) --- */
+@media (min-width: 375px) and (max-width: 399px) {
+    .main-card { padding: 30px 20px; }
+    .room-id-container { gap: 10px; }
+    .room-box { width: 52px; height: 65px; font-size: 26px; }
+    #board { gap: 8px; padding: 10px; }
+    .cell span { font-size: 10px; }
+}
+
+/* --- 4. iPhone Pro Max / Plus & Android จอใหญ่ (S23-24 Ultra, Note) --- */
+@media (min-width: 400px) and (max-width: 480px) {
+    .main-card { max-width: 420px; }
+    .room-box { width: 60px; height: 75px; font-size: 30px; }
+    #board { max-width: 420px; gap: 10px; padding: 12px; }
+    .cell span { font-size: 11px; }
+    .cell img { width: 60%; height: 60%; }
+}
+
+/* --- 5. Tablet / iPad (โหมดแนวตั้ง) --- */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .main-card { max-width: 500px; padding: 40px; }
+    .room-box { width: 70px; height: 90px; font-size: 36px; }
+    #board { max-width: 550px; gap: 12px; padding: 20px; }
+    .cell span { font-size: 14px; }
+    .cell img { width: 65%; height: 65%; }
+    .star { font-size: 40px; }
+}
+
+/* --- เพิ่มเติม: สำหรับหน้าจอแนวนอน (Landscape) ของมือถือ --- */
+@media (max-height: 500px) and (orientation: landscape) {
+    body { padding: 10px; }
+    .main-card { padding: 15px; display: flex; flex-direction: row; align-items: center; gap: 20px; max-width: 90%; }
+    h1 { font-size: 20px; margin: 0; }
+    .status-helper { margin-bottom: 10px; }
+    #board { max-width: 35vh; } /* ปรับกระดานให้เล็กลงในแนวตั้ง */
 }
