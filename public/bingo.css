@@ -78,7 +78,7 @@ h1 {
 }
 
 .cell span {
-    font-size: 11px;
+    font-size: 9px;
     font-weight: bold;
     color: #0b1a3d;
     text-align: center;
@@ -86,38 +86,38 @@ h1 {
 
 /* สถานะเมื่อกดเลือก (Marked) */
 .marked {
-    background-color: #4caf50 !important; /* เปลี่ยนเป็นสีทองเมื่อกด */
-    border-color: #ffffff !important;
+    background-color: #4caf50 !important;
+    border-color: #ffffff;
 }
 
 /* ช่องดาวตรงกลาง */
 .star {
-    background-color: #f7e18c !important;
+    background-color: #4caf50 !important;
     font-size: 30px;
-    border: 2px solid #f9da43;
+    border: 2px solid #fff;
 }
 
 /* iPhone 10, 11, 12, 13, 14, 15, 16 (Standard / Pro) */
 @media (min-width: 375px) and (max-width: 395px) {
     #board { gap: 8px; padding: 10px; }
-    .cell span { font-size: 10px; }
+    .cell span { font-size: 6px; }
 }
 
 /* iPhone Pro Max / Plus & Android จอใหญ่ (S23-24 Ultra) */
 @media (min-width: 410px) and (max-width: 440px) {
     #board { max-width: 420px; gap: 10px; }
-    .cell span { font-size: 12px; }
+    .cell span { font-size: 6px; }
 }
 
 /* Android ทั่วไป (Samsung A Series / S รุ่นปกติ) */
 @media (width: 360px) {
     #board { gap: 6px; }
-    .cell span { font-size: 9px; }
+    .cell span { font-size: 6px; }
 }
 
 /* iPhone SE / มือถือรุ่นเล็ก */
 @media (max-width: 350px) {
     #board { gap: 4px; border-width: 4px; }
-    .cell span { font-size: 8px; }
+    .cell span { font-size: 6px; }
     .star { font-size: 20px; }
 }

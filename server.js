@@ -8,6 +8,17 @@ const io = new Server(server)
 
 app.use(express.static("public"))
 
+app.get("/healthz",(req,res)=>{
+    res.send("ok")
+})
+
+app.get("/status",(req,res)=>{
+  res.json({
+    // players:Object.keys(io.sockets.sockets).length
+    players: io.engine.clientsCount
+  })
+})
+
 const rooms = {}
 
 const people = [
