@@ -102,7 +102,7 @@ if (window.location.pathname === "/bingo.html") {
 function getImageUrl(name) {
     const people = [
         "P' Tangmo", "P' Pink", "P' Nice", "P' Siw", "P' Namo", "P' Benz", "P' You", 
-        "P' Paul", "P' Mikey", "P' Pat", "P' Fourth", "P' Pimmy", "P' Nadia", 
+        "P' Paul", "P' Mikey", "P' Pat", "P' Fourth", "P' Pimmy", "P' Dia", 
         "P' Pun", "P' Prima", "P' Ming", "P' Bowky", "P' Nam", "P' Note", 
         "P' Pam", "P' Monao", "P' Boy", "P' Kaowpod", "P' Phil", "P' Wha", "P' Ling"
     ];

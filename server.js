@@ -34,7 +34,7 @@ const people = [
 "P' Pat",
 "P' Fourth",
 "P' Pimmy",
-"P' Nadia",
+"P' Dia",
 "P' Pun",
 "P' Prima",
 "P' Ming",
