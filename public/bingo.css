@@ -101,6 +101,13 @@ h1 {
 @media (min-width: 375px) and (max-width: 395px) {
     #board { gap: 8px; padding: 10px; }
     .cell span { font-size: 6px; }
+    .cell img {
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 4px;
+    }
 }
 
 /* iPhone Pro Max / Plus & Android จอใหญ่ (S23-24 Ultra) */
