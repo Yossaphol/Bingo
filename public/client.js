@@ -107,7 +107,7 @@ function getImageUrl(name) {
         "P' Pam", "P' Monao", "P' Boy", "P' Kaowpod", "P' Phil", "P' Wha", "P' Ling"
     ];
     const index = people.indexOf(name);
-    return index !== -1 ? `/img/people/${index + 1}.png` : "/img/default.png";
+    return index !== -1 ? `/img/people/${index + 1}.jpeg` : "/img/default.png";
 }
 
 socket.on("boardData", (board) => {
