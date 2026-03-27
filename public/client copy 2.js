@@ -6,8 +6,6 @@ let room = localStorage.getItem("room");
 // --- [เพิ่ม] ส่วนจัดการหน้าแรก (OTP UI) ---
 const roomInputs = document.querySelectorAll('.room-box');
 
-let isHost = false;
-
 if (roomInputs.length > 0) {
     roomInputs.forEach((input, index) => {
         input.addEventListener('input', (e) => {
@@ -40,7 +38,6 @@ if (roomInputs.length > 0) {
 // --- ฟังก์ชันสำหรับปุ่มกด ---
 
 function createRoom() {
-    isHost = true;
     socket.emit("createRoom");
 }
 
@@ -83,9 +80,7 @@ socket.on("roomCreated", (id) => {
 });
 
 socket.on("gameStarted", () => {
-    if (!isHost) { // 👈 เฉพาะ player
-        window.location.href = "/bingo.html";
-    }
+    window.location.href = "/bingo.html";
 });
 
 // [เพิ่ม] รับข้อความ Error จาก server
@@ -163,21 +158,5 @@ socket.on("playerCount", (count) => {
     const playerDisplay = document.getElementById("playerCount");
     if (playerDisplay) {
         playerDisplay.innerText = count;
-    }
-});
-
-function resetGame() {
-    socket.emit("resetGame", room);
-}
-socket.on("resetGame", () => {
-    if (!isHost) {
-        // player เท่านั้น
-        localStorage.removeItem("room");
-        window.location.href = "/";
-    } else {
-        // host อยู่หน้าเดิม
-        const status = document.getElementById("status");
-        if (status) status.innerText = "Game reset!";
-        window.location.href = "/host.html";
     }
 });

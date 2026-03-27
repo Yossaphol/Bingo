@@ -136,15 +136,7 @@ io.on("connection",(socket)=>{
 
  })
 
- socket.on("resetGame", (room) => {
-    if (!rooms[room]) return;
-
-    rooms[room].started = false;
-
-    io.to(room).emit("resetGame");
-});
 })
-
 
 server.listen(3000,()=>{
  console.log("Server running 3000")
